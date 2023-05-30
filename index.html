@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <canvas id="canvas"></canvas> -->
+    <model-viewer
+      style="width: 100%; height: 90vh"
+      src="./assets/Pose_5.glb"
+      ios-src="./assets/Pose_5.usdz"
+      alt="A 3D model of crocs"
+      ar
+      ar-modes="scene-viewer"
+      auto-rotate
+      autoplay
+      camera-controls
+    >
+    </model-viewer>
+    <script>
+      function capture() {
+        const model = document
+          .querySelector("model-viewer")
+          .toDataURL("image/png");
+        const test = document
+          .querySelector("model-viewer")
+          .shadowRoot.querySelector(".slot.canvas");
+        // document.createElement("img").src = model;
+        console.log(model);
+        console.log(test);
+      }
+    </script>
+    <button class="btn" onclick="capture()">click</button>
+  </body>
+</html>
